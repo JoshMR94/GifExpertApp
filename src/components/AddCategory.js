@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Proptypes from 'prop-types';
 
-export const AddCategory = () => {
+export const AddCategory = ({ setCategories }) => {
 
-    const [inputValue, setInputValue] = useState( 'Hola mundo' );
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = ( event ) => {
         setInputValue( event.target.value );
@@ -10,7 +11,13 @@ export const AddCategory = () => {
 
     const handleSubmit = ( event ) => {
         event.preventDefault();
-        console.log("Submit hecho");
+
+        if ( inputValue.trim().length > 2) {
+            //Importante. Mediante un callback hace uso de las categorías sin necesidad de ellas en este componente, ya que conserva su estado anterior
+            setCategories( categories => [ ...categories, inputValue ]);
+            setInputValue('');
+        }
+
     }
 
     return (
@@ -22,4 +29,8 @@ export const AddCategory = () => {
             />
         </form>
     )
-};
+}
+
+AddCategory.propTypes = {
+    setCategories: Proptypes.func.isRequired
+}

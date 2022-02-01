@@ -14,7 +14,7 @@ export const AddCategory = ({ setCategories }) => {
 
         if ( inputValue.trim().length > 2) {
             //Importante. Mediante un callback hace uso de las categorías sin necesidad de ellas en este componente, ya que conserva su estado anterior
-            setCategories( categories => [ ...categories, inputValue ]);
+            setCategories( categories => [ inputValue, ...categories ]);
             setInputValue('');
         }
 

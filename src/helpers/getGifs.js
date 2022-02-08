@@ -14,3 +14,5 @@ export const getGifs = async( category ) => {
 
     return gifs;
 }
+
+export default getGifs;

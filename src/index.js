@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import GifExperApp from './GifExpertApp';
+import GifExpertApp from './GifExpertApp';
 
 
 
 ReactDOM.render(
-    <GifExperApp />,
+    <GifExpertApp />,
   document.getElementById('root')
 );
